@@ -1,0 +1,24 @@
+{
+    "name": "az/helpers",
+    "description": "Base functions and classes.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AZ\\Helpers\\": "src/"
+        },
+        "files": [
+            "src/define.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Adrian Zurkiewicz",
+            "email": "adrian@zurkiewicz.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "az/core": "^1.0"
+    }
+}
