@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Http;
  * Recaptcha
  * 
  * <code>
+ * // JavaScript
+ * <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ * ...
+ * // HTML
  * <div class="g-recaptcha" data-sitekey="<?= $recaptcha_sitekey ?>"></div>
  * </code>
  * 
@@ -32,6 +36,14 @@ class Recaptcha
      * @return bool|null
      */
     public function validate(Request $request): ?bool {
+
+        $env = env('APP_ENV');
+
+        if (in_array($env, ['local','dev', 'development'])) {
+
+            return true;
+        }
+
 
         if (!$request->has('g-recaptcha-response')) {
 
