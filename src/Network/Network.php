@@ -8,9 +8,9 @@ class Network
 
     /**
      * 
-     * @return string
+     * @return string|null
      */
-    public function getClientIp(): string
+    public function getClientIp(): ?string
     {
         if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
             // może zawierać wiele adresów, bierz pierwszy
@@ -22,7 +22,7 @@ class Network
             return $_SERVER['HTTP_X_REAL_IP'];
         }
 
-        return $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN';
+        return $_SERVER['REMOTE_ADDR'] ?? null;
     }
 
 
